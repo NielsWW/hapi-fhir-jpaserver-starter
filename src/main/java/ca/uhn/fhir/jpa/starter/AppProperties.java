@@ -24,7 +24,7 @@ import java.util.Set;
 public class AppProperties {
 
   private Boolean cr_enabled = false;
-  private Boolean ips_enabled = false;
+  private Boolean ips_enabled = true;
   private Boolean openapi_enabled = false;
   private Boolean mdm_enabled = false;
   private String mdm_rules_json_location = "mdm-rules.json";

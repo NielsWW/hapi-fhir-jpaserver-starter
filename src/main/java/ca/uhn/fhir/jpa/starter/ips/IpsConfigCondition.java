@@ -8,7 +8,17 @@ public class IpsConfigCondition implements Condition {
 
 	@Override
 	public boolean matches(ConditionContext theConditionContext, AnnotatedTypeMetadata theAnnotatedTypeMetadata) {
+		System.out.println("\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 		String property = theConditionContext.getEnvironment().getProperty("hapi.fhir.ips_enabled");
-		return Boolean.parseBoolean(property);
+		Boolean result = Boolean.parseBoolean(property);
+		
+		if(result) {
+			System.out.println("IpsConfigCondition.matches: true");
+		} else {
+			System.out.println("IpsConfigCondition.matches: false");
+		}
+		
+		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n");
+		return result;
 	}
 }
