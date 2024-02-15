@@ -191,7 +191,7 @@ public class YourInterceptor
 
 The easiest way to run this server entirely depends on your environment requirements. At least, the following 4 ways are supported:
 
-### Using jetty (only default port 8080 possible)
+### Using jetty (localhost:8080)
 [15-02-2024] We only managed to run the server through the Jetty servlet on the default port [localhost:8080](http://localhost:8080/):
 
 ```bash
@@ -236,21 +236,11 @@ Server will then be accessible at http://localhost:8080/ and eg. http://localhos
           fhir_version: R4
 ```
 
-### Using Spring Boot
+### Using Spring Boot (localhost:8888)
 ```bash
 mvn clean package spring-boot:repackage -Pboot && java -jar target/ROOT.war
 ```
-Server will then be accessible at http://localhost:8080/ and eg. http://localhost:8080/fhir/metadata. Remember to adjust your overlay configuration in the application.yaml to eg.
-
-```yaml
-    tester:
-      -
-          id: home
-          name: Local Tester
-          server_address: 'http://localhost:8080/fhir'
-          refuse_to_fetch_third_party_urls: false
-          fhir_version: R4
-```
+Server will then be accessible at http://localhost:8888/ and eg. http://localhost:8888/fhir/metadata. 
 
 If you want to run on a different port, for example 8888, add the following lines to your application.yaml file:
 
