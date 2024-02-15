@@ -242,11 +242,11 @@ mvn clean package spring-boot:repackage -Pboot && java -jar target/ROOT.war
 ```
 Server will then be accessible at http://localhost:8888/ and eg. http://localhost:8888/fhir/metadata. 
 
-If you want to run on a different port, for example 8888, add the following lines to your application.yaml file:
+If you want to run on a different port, for example 8089, change the following lines to your application.yaml file:
 
 ```yaml
 server:
-  port: 8888
+  port: 8089
 ```
 And adjust the overlay configuration in the same file:
 
@@ -255,7 +255,7 @@ And adjust the overlay configuration in the same file:
       -
           id: home
           name: Local Tester
-          server_address: 'http://localhost:8888/fhir'
+          server_address: 'http://localhost:8089/fhir'
           refuse_to_fetch_third_party_urls: false
           fhir_version: R4
 ```
