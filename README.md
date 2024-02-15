@@ -191,12 +191,16 @@ public class YourInterceptor
 
 The easiest way to run this server entirely depends on your environment requirements. At least, the following 4 ways are supported:
 
-### Using jetty
+### Using jetty (only default port 8080 possible)
+[15-02-2024] We only managed to run the server through the Jetty servlet on the default port [localhost:8080](http://localhost:8080/):
+
 ```bash
 mvn -Pjetty jetty:run
 ```
 
+Go to section 'Using Spring Boot' to run on a different port.
 
+<strike>
 If you need to run this server on a different port (using Maven), you can change the port in the run command as follows:
 
 ```bash
@@ -214,6 +218,7 @@ Server will then be accessible at http://localhost:8888/ and eg. http://localhos
           refuse_to_fetch_third_party_urls: false
           fhir_version: R4
 ```
+</strike>
 
 ### Using Spring Boot with :run
 ```bash
@@ -246,6 +251,25 @@ Server will then be accessible at http://localhost:8080/ and eg. http://localhos
           refuse_to_fetch_third_party_urls: false
           fhir_version: R4
 ```
+
+If you want to run on a different port, for example 8888, add the following lines to your application.yaml file:
+
+```yaml
+server:
+  port: 8888
+```
+And adjust the overlay configuration in the same file:
+
+```yaml
+    tester:
+      -
+          id: home
+          name: Local Tester
+          server_address: 'http://localhost:8888/fhir'
+          refuse_to_fetch_third_party_urls: false
+          fhir_version: R4
+```
+
 ### Using Spring Boot and Google distroless
 ```bash
 mvn clean package com.google.cloud.tools:jib-maven-plugin:dockerBuild -Dimage=distroless-hapi && docker run -p 8080:8080 distroless-hapi

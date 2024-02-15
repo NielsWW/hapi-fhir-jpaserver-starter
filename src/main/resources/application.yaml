@@ -5,6 +5,8 @@ management:
     web:
       exposure:
         include: "health,prometheus"
+server:
+  port: 8888
 spring:
   main:
     allow-circular-references: true
@@ -191,7 +193,7 @@ hapi:
     tester:
       home:
         name: Local Tester
-        server_address: 'http://localhost:8080/fhir'
+        server_address: 'http://localhost:8888/fhir'
         refuse_to_fetch_third_party_urls: false
         fhir_version: R4
       global:
