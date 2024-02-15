@@ -8,7 +8,7 @@ public class IpsConfigCondition implements Condition {
 
 	@Override
 	public boolean matches(ConditionContext theConditionContext, AnnotatedTypeMetadata theAnnotatedTypeMetadata) {
-		System.out.println("\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+		System.out.println("\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 		String property = theConditionContext.getEnvironment().getProperty("hapi.fhir.ips_enabled");
 		Boolean result = Boolean.parseBoolean(property);
 		
@@ -18,7 +18,7 @@ public class IpsConfigCondition implements Condition {
 			System.out.println("IpsConfigCondition.matches: false");
 		}
 		
-		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n");
+		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n");
 		return result;
 	}
 }

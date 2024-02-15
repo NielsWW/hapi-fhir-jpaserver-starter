@@ -6,7 +6,7 @@ import ca.uhn.fhir.jpa.ips.api.IIpsGenerationStrategy;
 import ca.uhn.fhir.jpa.ips.generator.IIpsGeneratorSvc;
 import ca.uhn.fhir.jpa.ips.generator.IpsGeneratorSvcImpl;
 import ca.uhn.fhir.jpa.ips.provider.IpsOperationProvider;
-import ca.uhn.fhir.jpa.ips.strategy.DefaultIpsGenerationStrategy;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Conditional;
 public class StarterIpsConfig {
 	@Bean
 	IIpsGenerationStrategy ipsGenerationStrategy() {
-		return new DefaultIpsGenerationStrategy();
+		return new ZorgRotondeIpsGenerationStrategy();
 	}
 
 	@Bean
